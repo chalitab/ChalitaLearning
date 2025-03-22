@@ -4,7 +4,8 @@
       "commandName": "Project",
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "dev",
+        "SecretManagerName": "chalita-learning"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "http://localhost:5114"
@@ -13,7 +14,8 @@
       "commandName": "Project",
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "dev",
+        "SecretManagerName": "chalita-learning"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7009;http://localhost:5114"
@@ -33,7 +35,8 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "dev",
+        "SecretManagerName": "chalita-learning"
       }
     }
   },

@@ -1,8 +1,10 @@
 using Amazon.S3;
 using ChalitaLearning;
+using ChalitaLearning.Extensions;
 using ChalitaLearning.Services.AwsService;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.AddConfigurations();
 
 // Add CORS policy
 builder.Services.AddCors(options =>

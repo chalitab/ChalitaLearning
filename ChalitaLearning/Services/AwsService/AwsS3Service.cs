@@ -10,14 +10,14 @@ namespace ChalitaLearning.Services.AwsService
     public class AwsS3Service : IAwsS3Service
     {
         private readonly AppSettings _appSettings;
-       // private readonly IAmazonS3 _amazonS3;
+        private readonly IAmazonS3 _amazonS3;
 
-        public AwsS3Service(IOptions<AppSettings> appSettings//,
-            //IAmazonS3 amazonS3
+        public AwsS3Service(IOptions<AppSettings> appSettings,
+            IAmazonS3 amazonS3
             ) 
         {
             _appSettings = appSettings.Value;
-           // _amazonS3 = amazonS3;
+            _amazonS3 = amazonS3;
         }
 
         public string EncryptByCertFromS3(TopupFrom123Requset requset)
@@ -36,27 +36,27 @@ namespace ChalitaLearning.Services.AwsService
 
                     encrypt = CryptographyClient.PKCS7Encrypt(text, publicCertPath);
                 }
-          /*      else
+                else
                 {
-                    var request = new GetObjectRequest
+                    var obj = new GetObjectRequest
                     {
                         BucketName = bucketName,
                         Key = publicCertPath
                     };
 
                     byte[] certData;
-                    using (var response = _amazonS3.GetObjectAsync(request).Result)
+                    using (var response = _amazonS3.GetObjectAsync(obj).Result)
                     using (var memoryStream = new MemoryStream())
                     {
                         response.ResponseStream.CopyTo(memoryStream);
                         certData = memoryStream.ToArray();
                     }
                     encrypt = CryptographyClient.PKCS7Encrypt(text, certData);
-                }*/
+                }
 
                 return encrypt;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return null;
             }
