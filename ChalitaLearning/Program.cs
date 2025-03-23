@@ -35,8 +35,14 @@ builder.Services.AddDefaultAWSOptions(builder.Configuration.GetAWSOptions());
 // Register AWS SDK S3 Client
 builder.Services.AddAWSService<IAmazonS3>();
 
+// Register AWS SDK ¦ð¦ Client
+builder.Services.AddAWSService<Amazon.SQS.IAmazonSQS>();
+
 // Register your custom S3 service
 builder.Services.AddScoped<IAwsS3Service, AwsS3Service>();
+
+// For Consumer use
+builder.Services.AddHttpClient();
 
 var app = builder.Build();
 app.UseHttpsRedirection();
